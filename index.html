@@ -23,13 +23,14 @@
                         <h5>iPhone 11 128GB Black</h5>
                      </div>
 
+                     <!----develop----> 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="caseDecrementOne" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="caseCountOne" type="text" class="form-control text-center" value="1">
+                           <button id="caseIncrementOne" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5 id="caseTotalPriceOne">$1219</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +44,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="case-decrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="case-count" type="text" class="form-control text-center" value="1">
+                           <button  id="case-increment" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5 id="caseTotalPrice">$59</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -77,6 +78,72 @@
          </div>
       </div>
    </section>
+
+   <script>
+
+   //first card added quantity and total price count
+      //plus button clicked event handler
+   document.getElementById('caseIncrementOne').addEventListener('click',function(){
+      //console.log('clicked me');
+      //case count capture
+      const caseInput = document.getElementById('caseCountOne')
+      //console.log(caseInput.value);
+      //string to integer convert
+      const caseCountOne = parseFloat(caseInput.value);
+      //console.log(caseCountOne);
+      //plus 1 add in current count number
+      const caseNewCountNumber = caseCountOne + 1; 
+      caseInput.value = caseNewCountNumber; 
+      //case total price add
+      const caseTotalPriceOne = caseNewCountNumber * 1219;
+   //total id capture
+   document.getElementById('caseTotalPriceOne').innerText = '$' + caseTotalPriceOne;
+   })
+
+   //card one case decrement 
+   document.getElementById('caseDecrementOne').addEventListener('click',function(){
+     // console.log("clicked me...");
+      const caseInput = document.getElementById('caseCountOne')
+      //console.log(caseInput.value);
+      const caseCountOne = parseFloat(caseInput.value);
+      //console.log(caseCountOne);
+      const caseNewCountNumber = caseCountOne - 1;
+      caseInput.value = caseNewCountNumber;
+      const caseTotalPriceOne = caseNewCountNumber * 1219;
+      document.getElementById('caseTotalPriceOne').innerText = '$' + caseTotalPriceOne;
+   })
+
+//<!---------------------------------------------------------------->
+//<!---------------------second card-------------------------------->
+//<!---------------------------------------------------------------->
+   //second card added quantity and total price count
+   document.getElementById('case-increment').addEventListener('click',function(){
+      const caseInput = document.getElementById('case-count')
+      //console.log(caseInput.value);
+      const caseCount = parseFloat(caseInput.value);
+      //console.log(caseCount);
+      const caseNewCount = caseCount + 1;
+      caseInput.value = caseNewCount;
+      const caseTotalPrice = caseNewCount * 59;
+      document.getElementById('caseTotalPrice').innerText = '$' + caseTotalPrice;
+   })
+    //case decrease second card
+    document.getElementById('case-decrease').addEventListener('click',function(){
+      const caseInput = document.getElementById('case-count');
+      //console.log(caseInput.value);
+      const caseCount = parseFloat(caseInput.value);
+      //console.log(caseCount);
+      const caseNewCount = caseCount - 1;
+      caseInput.value = caseNewCount;
+      const caseTotalPrice = caseNewCount * 59;
+      document.getElementById('caseTotalPrice').innerText = caseTotalPrice;
+     })
+//<!---------------------------------------------------------------->
+//<!---------------------------------------------------------------->
+//<!---------------------------------------------------------------->
+    
+
+   </script>
 </body>
 
 </html>
